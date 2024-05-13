@@ -5,8 +5,3 @@
 * @brief: Entry point for client side of the turbo message application
 """
 
-import lib.Texts as Texts 
-
-Texts.WelcomeMessage()
-Texts.LineJump()
-Texts.MainMenu()
