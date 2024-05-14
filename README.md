@@ -48,7 +48,7 @@ erDiagram
     Email{
         int id
         string subject
-        bool read
+        bool readed
         bool deleted
     }
 

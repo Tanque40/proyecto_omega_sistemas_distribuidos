@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1csrc/proto/turbomessage.proto\x12\x0cturbomessage\"Q\n\rNew_User_Data\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tlast_name\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x10\n\x08password\x18\x04 \x01(\t\",\n\tUser_Data\x12\r\n\x05\x65mail\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"\x18\n\x06Status\x12\x0e\n\x06status\x18\x01 \x01(\x08\"u\n\nEmail_Data\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0f\n\x07subject\x18\x02 \x01(\t\x12\x0c\n\x04read\x18\x03 \x01(\x08\x12\x0f\n\x07\x64\x65leted\x18\x04 \x01(\x08\x12\x14\n\x0c\x65mail_sender\x18\x05 \x01(\t\x12\x15\n\remail_reciver\x18\x06 \x01(\t\"\x1b\n\nUser_Email\x12\r\n\x05\x65mail\x18\x01 \x01(\t\":\n\x0e\x45mail_Response\x12(\n\x06\x65mails\x18\x01 \x03(\x0b\x32\x18.turbomessage.Email_Data2\x91\x01\n\rAuthenticator\x12?\n\x08new_user\x12\x1b.turbomessage.New_User_Data\x1a\x14.turbomessage.Status\"\x00\x12?\n\x0c\x61uthenticate\x12\x17.turbomessage.User_Data\x1a\x14.turbomessage.Status\"\x00\x32\xdc\x01\n\x0b\x45mailServer\x12>\n\nsend_email\x12\x18.turbomessage.Email_Data\x1a\x14.turbomessage.Status\"\x00\x12K\n\rrecive_emails\x12\x18.turbomessage.User_Email\x1a\x1c.turbomessage.Email_Response\"\x00\x30\x01\x12@\n\x0cmark_as_read\x12\x18.turbomessage.Email_Data\x1a\x14.turbomessage.Status\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1csrc/proto/turbomessage.proto\x12\x0cturbomessage\"Q\n\rNew_User_Data\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tlast_name\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x10\n\x08password\x18\x04 \x01(\t\",\n\tUser_Data\x12\r\n\x05\x65mail\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\")\n\x06Status\x12\x0e\n\x06status\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\"u\n\nEmail_Data\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0f\n\x07subject\x18\x02 \x01(\t\x12\x0c\n\x04read\x18\x03 \x01(\x08\x12\x0f\n\x07\x64\x65leted\x18\x04 \x01(\x08\x12\x14\n\x0c\x65mail_sender\x18\x05 \x01(\t\x12\x15\n\remail_reciver\x18\x06 \x01(\t\"\x1b\n\nUser_Email\x12\r\n\x05\x65mail\x18\x01 \x01(\t\":\n\x0e\x45mail_Response\x12(\n\x06\x65mails\x18\x01 \x03(\x0b\x32\x18.turbomessage.Email_Data2\x91\x01\n\rAuthenticator\x12?\n\x08new_user\x12\x1b.turbomessage.New_User_Data\x1a\x14.turbomessage.Status\"\x00\x12?\n\x0c\x61uthenticate\x12\x17.turbomessage.User_Data\x1a\x14.turbomessage.Status\"\x00\x32\xdc\x01\n\x0b\x45mailServer\x12>\n\nsend_email\x12\x18.turbomessage.Email_Data\x1a\x14.turbomessage.Status\"\x00\x12K\n\rrecive_emails\x12\x18.turbomessage.User_Email\x1a\x1c.turbomessage.Email_Response\"\x00\x30\x01\x12@\n\x0cmark_as_read\x12\x18.turbomessage.Email_Data\x1a\x14.turbomessage.Status\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -26,15 +26,15 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_USER_DATA']._serialized_start=129
   _globals['_USER_DATA']._serialized_end=173
   _globals['_STATUS']._serialized_start=175
-  _globals['_STATUS']._serialized_end=199
-  _globals['_EMAIL_DATA']._serialized_start=201
-  _globals['_EMAIL_DATA']._serialized_end=318
-  _globals['_USER_EMAIL']._serialized_start=320
-  _globals['_USER_EMAIL']._serialized_end=347
-  _globals['_EMAIL_RESPONSE']._serialized_start=349
-  _globals['_EMAIL_RESPONSE']._serialized_end=407
-  _globals['_AUTHENTICATOR']._serialized_start=410
-  _globals['_AUTHENTICATOR']._serialized_end=555
-  _globals['_EMAILSERVER']._serialized_start=558
-  _globals['_EMAILSERVER']._serialized_end=778
+  _globals['_STATUS']._serialized_end=216
+  _globals['_EMAIL_DATA']._serialized_start=218
+  _globals['_EMAIL_DATA']._serialized_end=335
+  _globals['_USER_EMAIL']._serialized_start=337
+  _globals['_USER_EMAIL']._serialized_end=364
+  _globals['_EMAIL_RESPONSE']._serialized_start=366
+  _globals['_EMAIL_RESPONSE']._serialized_end=424
+  _globals['_AUTHENTICATOR']._serialized_start=427
+  _globals['_AUTHENTICATOR']._serialized_end=572
+  _globals['_EMAILSERVER']._serialized_start=575
+  _globals['_EMAILSERVER']._serialized_end=795
 # @@protoc_insertion_point(module_scope)

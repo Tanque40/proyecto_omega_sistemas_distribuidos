@@ -26,10 +26,12 @@ class User_Data(_message.Message):
     def __init__(self, email: _Optional[str] = ..., password: _Optional[str] = ...) -> None: ...
 
 class Status(_message.Message):
-    __slots__ = ("status",)
+    __slots__ = ("status", "message")
     STATUS_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_FIELD_NUMBER: _ClassVar[int]
     status: bool
-    def __init__(self, status: bool = ...) -> None: ...
+    message: str
+    def __init__(self, status: bool = ..., message: _Optional[str] = ...) -> None: ...
 
 class Email_Data(_message.Message):
     __slots__ = ("id", "subject", "read", "deleted", "email_sender", "email_reciver")

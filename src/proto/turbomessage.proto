@@ -2,45 +2,46 @@ syntax = "proto3";
 package turbomessage;
 
 service Authenticator{
-    rpc new_user(New_User_Data) returns (Status){};
-    rpc authenticate(User_Data) returns (Status){};
+	rpc new_user(New_User_Data) returns (Status){};
+	rpc authenticate(User_Data) returns (Status){};
 }
 
 service EmailServer{
-    rpc send_email(Email_Data) returns (Status){};
-    rpc recive_emails(User_Email) returns(stream Email_Response){};
-    rpc mark_as_read(Email_Data) returns(Status){};
+	rpc send_email(Email_Data) returns (Status){};
+	rpc recive_emails(User_Email) returns(stream Email_Response){};
+	rpc mark_as_read(Email_Data) returns(Status){};
 }
 
 message New_User_Data{
-    string name = 1;
-    string last_name = 2;
-    string email = 3;
-    string password = 4;
+	string name = 1;
+	string last_name = 2;
+	string email = 3;
+	string password = 4;
 }
 
 message User_Data{
-    string email = 1;
-    string password = 2;
+	string email = 1;
+	string password = 2;
 }
 
 message Status{
-    bool status = 1;
+	bool status = 1;
+	string message = 2;
 }
 
 message Email_Data{
-    int32 id  = 1;
-    string subject = 2;
-    bool read = 3;
-    bool deleted = 4;
-    string email_sender = 5;
-    string email_reciver = 6;
+	int32 id  = 1;
+	string subject = 2;
+	bool read = 3;
+	bool deleted = 4;
+	string email_sender = 5;
+	string email_reciver = 6;
 }
 
 message User_Email{
-    string email = 1;
+	string email = 1;
 }
 
 message Email_Response{
-    repeated Email_Data emails = 1;
+	repeated Email_Data emails = 1;
 }
