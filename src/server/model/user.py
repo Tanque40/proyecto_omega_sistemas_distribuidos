@@ -7,13 +7,6 @@
 import sqlite3
 
 class User:
-	def __init__(self):
-		self.id = 0
-		self.name = ""
-		self.last_name = ""
-		self.email = ""
-		self.password = ""
-
 	def __init__(self, id = 0, name="", last_name = "", email="", password=""):
 		self.id = id
 		self.name = name
@@ -25,3 +18,12 @@ class User:
 		connection = sqlite3.connect("turbomessage.db")
 		cursor = connection.cursor()
 		return cursor.execute("SELECT * FROM user")
+
+	def save(self):
+		connection = sqlite3.connect("turbomessage.db")
+		cursor = connection.cursor()
+		cursor.execute("INSERT INTO user VAlUES(?, ?, ?, ?)", self.user_data())
+		connection.commit()
+
+	def user_data(self):
+		return (self.name, self.last_name, self.email, self.password)

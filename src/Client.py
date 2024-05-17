@@ -7,32 +7,108 @@
 
 import dearpygui.dearpygui as dpg
 import lib.constants as constants
+import grpc
+import turbomessage_pb2
+import turbomessage_pb2_grpc
 
 dpg.create_context()
+dpg.create_viewport(title='TurboMessage', width=constants.WIDTH, height=constants.HEIGHT)
 
-dpg.create_viewport(title='Custom Title', width=constants.WIDTH, height=constants.HEIGHT)
+dpg_window = dpg.generate_uuid()
 
 def print_me(sender):
 	print(f"Menu Item: {sender}")
 
-with dpg.window(label="Tutorial", width=constants.WIDTH, height=constants.HEIGHT):
-	with dpg.menu_bar():
+def test_connection(sender, isVisible):
+	isVisible = not isVisible
+
+def change_window():
+	dpg.delete_item(dpg_window, children_only=True) # clean the window from the past interface
+	render_second_window(parent=dpg_window)
+
+def render_second_window(parent=0):
+	with dpg.group(horizontal=True, parent=parent) as group:
+		dpg.add_text("Hello, world", parent=group)
+		dpg.add_button(label="Save", callback=test_connection, parent=group)
+		dpg.add_input_text(label="string", default_value="Quick brown fox", parent=group)
+		dpg.add_slider_float(label="float", default_value=0.273, max_value=1, parent=group)
+
+def render_login(parent = 0):
+	with dpg.group(horizontal=False, parent=parent) as group:
 		with dpg.menu(label="File"):
 			dpg.add_menu_item(label="Save", callback=print_me)
 			dpg.add_menu_item(label="Save As", callback=print_me)
 
-			with dpg.menu(label="Settings"):
-				dpg.add_menu_item(label="Setting 1", callback=print_me, check=True)
-				dpg.add_menu_item(label="Setting 2", callback=print_me)
+		with dpg.menu(label="Settings"):
+			dpg.add_menu_item(label="Setting 1", callback=print_me, check=True)
+			dpg.add_menu_item(label="Setting 2", callback=print_me)
 
 		dpg.add_menu_item(label="Help", callback=print_me)
 
 		with dpg.menu(label="Widget Items"):
 			dpg.add_checkbox(label="Pick Me", callback=print_me)
-			dpg.add_button(label="Press Me", callback=print_me)
+			dpg.add_button(label="Press Me", callback=change_window)
 			dpg.add_color_picker(label="Color Me", callback=print_me)
+
+with dpg.window(
+		tag=dpg_window,
+		label="TurboMessage",
+		width=constants.WIDTH,
+		height=constants.HEIGHT,
+		no_collapse=True,
+		no_close=True
+	):
+	render_login()
 
 dpg.setup_dearpygui()
 dpg.show_viewport()
 dpg.start_dearpygui()
 dpg.destroy_context()
+
+"""
+import dearpygui.dearpygui as dpg
+
+dpg.create_context()
+
+dpg.create_viewport()
+
+# I just feel more comfortable working with variables instead of string/ing tags
+
+dpg_window = dpg.generate_uuid()
+
+def render_main_window(parent=0):
+
+	with dpg.group(horizontal=True, parent=parent) as group:
+
+		dpg.add_text('This is the main window!', parent=group)
+
+		dpg.add_text('Test', parent=group)
+
+def login():
+
+	dpg.delete_item(dpg_window, children_only=True) # clean the window from the past interface
+
+	render_main_window(parent=dpg_window)
+
+def render_login_window(parent=0):
+
+	dpg.add_button(label='Login', callback=login, parent=parent)
+
+	with dpg.group(horizontal=True, parent=parent) as group:
+
+		dpg.add_text('1', parent=group)
+
+		dpg.add_text('2', parent=group)
+
+with dpg.window(tag=dpg_window):
+	render_login_window()
+
+dpg.setup_dearpygui()
+
+dpg.show_viewport()
+
+dpg.start_dearpygui()
+
+dpg.destroy_context()
+
+"""
